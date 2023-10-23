@@ -10,7 +10,7 @@ int main(){
         int n = stoi(S);
         cout << n << endl;
     }
-    catch(std::invalid_argument){
+    catch(...){
         cout << "Bad String" << endl;
     }
 
