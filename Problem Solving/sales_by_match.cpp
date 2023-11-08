@@ -3,35 +3,22 @@
 using namespace std;
 
 int sockMerchant(int n, vector<int> ar){
-    vector<int>::iterator it, it2;
-    int pair = 0, i = 0, iter = 0;
-
-    cout << "vetor inicial: ";
-    for(it2=ar.begin(); it2<ar.end(); it2++)
-        cout << *it2 << " ";
-
-    cout << endl;
-    while(i < n){
+    vector<int>::iterator it;
+    int pair = 0, val;
+    
+    while(n-- > 0){
         it = ar.begin();
+        val = *it;
         ar.erase(it);
-        i++;
-
-        cout << "Vetor na iteracao " << iter;
-        iter++;
-        for(it2=ar.begin(); it2<ar.end(); it2++)
-            cout << *it2 << " ";
-
-        cout << endl;
-
-        for(it2=ar.begin(); it2<ar.end(); it2++){
-            if(*it == *it2){
+        for(it=ar.begin(); it != ar.end(); it++){
+            if(*it == val){
                 pair++;
-                i++;
-                ar.erase(it2);
+                ar.erase(it);
+                n--;
                 break;
             }
         }
-    }
+    } 
     return pair;
 }
 
